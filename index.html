@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareSquad - Movie Download Hub</title>
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png">
+    <link rel="shortcut icon" type="image/png" href="android-chrome-192x192.png">
+    <meta name="description" content="Download the latest movies in high quality from ShareSquad. Fast downloads, vast collection, and the best movie download experience.">
+    <meta name="keywords" content="movie download, free movies, latest movies, movie streaming, ShareSquad, film download">
+    <meta name="author" content="ShareSquad">
+    <meta property="og:title" content="ShareSquad - Movie Download Hub">
+    <meta property="og:description" content="Download the latest movies in high quality from ShareSquad. Fast downloads, vast collection, and the best movie download experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sharesquad.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ShareSquad - Movie Download Hub">
+    <meta name="twitter:description" content="Download the latest movies in high quality from ShareSquad. Fast downloads, vast collection, and the best movie download experience.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>ShareSquad</h2>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search movies by name or category...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#movies" class="nav-link">Movies</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+       
+
+        <!-- Latest Movies Section -->
+        <section class="movies-section" id="movies">
+            <div class="container">
+                <div class="slider-container">
+                    <div class="poster-slider" id="posterSlider">
+                        <!-- Poster items will be populated by JavaScript -->
+                    </div>
+                </div>
+                <h2 class="section-title">Latest Movies</h2>
+                
+                <div class="movies-grid" id="moviesGrid">
+                    <!-- Movies will be populated by JavaScript -->
+                </div>
+
+                <div class="loading" id="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading movies...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShareSquad</h3>
+                    <p>Your ultimate destination for downloading the latest movies. High quality, fast downloads, and a vast collection.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareSquad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <span class="close" id="closePrivacy">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>At ShareSquad, we are committed to protecting your privacy and ensuring the security of your personal information.</p>
+                <h4>Information We Collect</h4>
+                <ul>
+                    <li>Basic contact information when you use our contact form</li>
+                    <li>Usage data to improve our service</li>
+                    <li>Cookies for website functionality</li>
+                </ul>
+                <h4>How We Use Your Information</h4>
+                <ul>
+                    <li>To respond to your inquiries</li>
+                    <li>To improve our website and services</li>
+                    <li>To ensure website security</li>
+                </ul>
+                <p>We do not sell or share your personal information with third parties.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms & Conditions</h3>
+                <span class="close" id="closeTerms">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>By using ShareSquad, you agree to the following terms and conditions:</p>
+                <h4>Acceptable Use</h4>
+                <ul>
+                    <li>You must be 18 years or older to use this service</li>
+                    <li>Content is for personal use only</li>
+                    <li>Do not redistribute downloaded content</li>
+                </ul>
+                <h4>Disclaimers</h4>
+                <ul>
+                    <li>Content availability may vary</li>
+                    <li>We are not responsible for content quality</li>
+                    <li>Service may be interrupted for maintenance</li>
+                </ul>
+                <p>These terms are subject to change without notice.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK v9+ Compat -->
+    <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics-compat.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
