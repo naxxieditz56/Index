@@ -1,33 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Blog | Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Cadbury Dairy Milk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/admin-style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="container nav-flex">
-            <a href="index.html" class="logo">Buniyaad<span>Blog</span></a>
-            <div class="nav-links">
-                <input type="text" id="searchInput" placeholder="Search posts...">
-                <button id="themeToggle">🌙</button>
-                <a href="admin.html">Admin</a>
-            </div>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-candy-cane"></i>
+        <span>Admin Panel</span>
+      </div>
+      <div class="sidebar-menu">
+        <div class="menu-item active" onclick="loadSection('dashboard')">
+          <i class="fas fa-home"></i>
+          <span>Dashboard</span>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1>Discover Stories & Ideas</h1>
-    </header>
-
-    <main class="container">
-        <div id="blogGrid" class="blog-grid">
-            <p>Loading posts...</p>
+        <div class="menu-item" onclick="loadSection('products')">
+          <i class="fas fa-box"></i>
+          <span>Products</span>
         </div>
-    </main>
+        <div class="menu-item" onclick="loadSection('payments')">
+          <i class="fas fa-qrcode"></i>
+          <span>Payment Methods</span>
+        </div>
+        <div class="menu-item" onclick="loadSection('users')">
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        </div>
+        <div class="menu-item" onclick="loadSection('transactions')">
+          <i class="fas fa-history"></i>
+          <span>Transactions</span>
+        </div>
+        <div class="menu-item" onclick="loadSection('withdrawals')">
+          <i class="fas fa-hand-holding-usd"></i>
+          <span>Withdrawals</span>
+        </div>
+        <div class="menu-item" onclick="loadSection('referrals')">
+          <i class="fas fa-link"></i>
+          <span>Referrals</span>
+        </div>
+        <div class="menu-item" onclick="loadSection('settings')">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="menu-item" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </div>
+      </div>
+    </div>
 
-    <script type="module" src="js/script.js"></script>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="menu-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="page-title" id="pageTitle">Dashboard</div>
+        <div class="admin-profile">
+          <i class="fas fa-bell"></i>
+          <div class="profile-info" id="adminInfo">
+            <span id="adminName">Admin</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area" id="contentArea">
+        <!-- Dashboard content will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 </html>
