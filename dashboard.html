@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyEarn - Dashboard</title>
+    <style>
+        :root { --primary-blue: #1e3a8a; --accent-green: #10b981; --bg-dark: #0f172a; --card-bg: #1e293b; --text-light: #f8fafc; --text-muted: #94a3b8; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-dark); color: var(--text-light); margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .dashboard-container { max-width: 480px; width: 100%; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .header h1 span { color: var(--accent-green); }
+        .wallet-card { background: linear-gradient(135deg, var(--primary-blue), #0f172a); border-radius: 16px; padding: 25px; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3); margin-bottom: 25px; }
+        .balance { font-size: 36px; font-weight: bold; color: var(--accent-green); margin: 10px 0; }
+        .btn-withdraw { background: var(--accent-green); color: #0f172a; border: none; padding: 8px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+        .refer-card { background: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 25px; border: 1px solid #334155; }
+        .share-box { display: flex; background: #0f172a; padding: 10px; border-radius: 8px; align-items: center; justify-content: space-between; margin-top: 10px; }
+        .ref-code { font-family: monospace; font-size: 18px; font-weight: bold; color: #f59e0b; }
+        .btn-copy { background: var(--primary-blue); color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .task-section h3 { color: var(--text-muted); margin-bottom: 15px; }
+        .task-item { background: var(--card-bg); border-radius: 12px; padding: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border: 1px solid #334155; }
+        .btn-start { background: transparent; border: 2px solid var(--primary-blue); color: var(--text-light); padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .ad-slot-dash { margin-top: 25px; text-align: center; background: #1e293b; padding: 10px; border-radius: 12px; min-height: 250px; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header">
+        <h1>Study<span>Earn</span></h1>
+        <div id="username" style="font-size: 14px; color: var(--text-muted);">नमस्ते... 👋</div>
+    </div>
+
+    <div class="wallet-card">
+        <p>कुल वॉलेट बैलेंस</p>
+        <div class="balance" id="userBalance">₹0.00</div>
+        <button class="btn-withdraw" onclick="alert('न्यूनतम विड्रॉल ₹50 है।')">Withdraw</button>
+    </div>
+
+    <div class="refer-card">
+        <h3>दोस्तों को जोड़ें और कमाएं</h3>
+        <div class="share-box">
+            <span class="ref-code" id="myRefCode">Loading...</span>
+            <button class="btn-copy" onclick="copyCode()">कॉपी</button>
+        </div>
+    </div>
+
+    <div class="task-section">
+        <h3>आज के मुख्य टास्क</h3>
+        <div class="task-item">
+            <div style="flex:1;">
+                <h4 style="margin:0 0 5px 0;">डेली जीके क्विज (GK)</h4>
+                <p style="margin:0; font-size:12px; color:var(--accent-green);">+10 रुपये (15s एड)</p>
+            </div>
+            <button class="btn-start" onclick="window.location.href='task.html'">शुरू करें</button>
+        </div>
+    </div>
+
+    <div class="ad-slot-dash">
+        <span style="font-size:10px; color:#64748b; display:block; margin-bottom:5px;">Sponsored Ad</span>
+        <script type="text/javascript">
+            atOptions = { 'key' : 'YOUR_ADSTERRA_BANNER_KEY', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/YOUR_ADSTERRA_BANNER_KEY/invoke.js"></script>
+    </div>
+</div>
+
+<script type="module" src="app.js"></script>
+<script>
+    function copyCode() {
+        const code = document.getElementById('myRefCode').innerText;
+        navigator.clipboard.writeText(window.location.origin + "/?ref=" + code);
+        alert("आपका रेफरल लिंक कॉपी हो गया है!");
+    }
+</script>
+</body>
+</html>
+
